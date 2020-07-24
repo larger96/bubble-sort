@@ -1,23 +1,21 @@
 def bubble_sort(array)
   i = 0
   iterations = 0
-  new_array = []
-  last_array = []
-  sorted = false
-  while sorted == false
+  last_array = array.dup
+  no_swap = false
+  while no_swap == false
     while i < array.length - 1
       if array[i] > array[i + 1]
         array[i], array[i + 1] = array[i + 1], array[i]
       end
       i += 1
     end
-    new_array = array
-    if new_array == last_array
-      sorted = true
+    if array == last_array
+      no_swap = true
     else
       i = 0
       iterations += 1
-      last_array = new_array.dup
+      last_array = array.dup
     end
   end
   print array
